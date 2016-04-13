@@ -17,6 +17,7 @@ BEGIN {
   if (index(NEXT_YEAR_MONTHS, month) > 0) {
     financialYear = year+1;
   }
-  
-  print $0 " month=" month " year=" year " fy=" financialYear;
+ 
+  directoryName = financialYear "FY" 
+  print directoryName;
 }
