@@ -1,0 +1,16 @@
+#!/usr/bin/zsh
+
+scriptDirectory=${0:a:h}
+filesDirectory='.'
+if ((${#} > 0)); then
+  filesDirectory=${1}
+fi
+
+for file in ${filesDirectory}/*.pdf; do
+  class=`echo ${file} | awk -f ${scriptDirectory}/classifier.awk`
+  destination=${filesDirectory}/${class}
+  if [[ ! ( -d $destination) ]]; then
+    mkdir ${destination} 
+  fi
+  mv ${file} ${destination} 
+done
