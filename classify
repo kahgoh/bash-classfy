@@ -12,5 +12,5 @@ for file in ${filesDirectory}/*.pdf; do
   if [[ ! ( -d $destination) ]]; then
     mkdir ${destination} 
   fi
-  mv ${file} ${destination} 
+  git mv ${file} ${destination} 
 done
