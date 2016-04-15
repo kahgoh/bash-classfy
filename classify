@@ -1,14 +1,25 @@
 #!/usr/bin/zsh
 
-scriptDirectory=${0:a:h}
+# Names of months for which the financial year is the following year.
+NEXT_YEAR_MONTHS=("JUL" "AUG" "SEP" "OCT" "NOV" "DEC")
+
 filesDirectory='.'
 if ((${#} > 0)); then
   filesDirectory=${1}
 fi
 
 for file in ${filesDirectory}/*.pdf; do
-  class=`echo ${file} | awk -f ${scriptDirectory}/classifier.awk`
-  destination=${filesDirectory}/${class}
+  # The month and year are at the end of the file name, in the form MMMyyyy. 
+  name=${file:t:r}
+  length=${#name}
+  year=${name[${length}-3, ${length}]}
+  month=${name[${length}-6, ${length}-4]}
+
+  if [[ ${NEXT_YEAR_MONTHS[(I)${month}]} -gt 0 ]]; then
+    year=$((${year}+1))
+  fi
+
+  destination=${filesDirectory}/${year}FY
   if [[ ! ( -d $destination) ]]; then
     mkdir ${destination} 
   fi
