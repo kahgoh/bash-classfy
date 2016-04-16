@@ -11,7 +11,7 @@ if ((${#} > 0)); then
   filesDirectory=${1}
 fi
 
-for file in ${filesDirectory}/*.pdf; do
+for file in ${filesDirectory}/*(.); do
   # The month and year are at the end of the file name, in the form MMMyyyy.
   name=${file:t:r}
   length=${#name}
