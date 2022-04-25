@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 
 # Names of months for which the financial year is the following year.
 NEXT_YEAR_MONTHS=("JUL" "AUG" "SEP" "OCT" "NOV" "DEC")
