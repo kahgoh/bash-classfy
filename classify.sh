@@ -30,7 +30,7 @@ for file in ${filesDirectory}/*(.); do
     if [[ ! ( -d $destination) ]]; then
       mkdir ${destination}
     fi
-    git mv ${file} ${destination}
+    mv ${file} ${destination}
   else
     echo Skipping file ${file}
   fi
