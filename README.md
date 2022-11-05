@@ -1,9 +1,13 @@
-I created this Zsh script to reorganise some files in a Git repository on my computer. It groups files by "financial year", which runs from 1 July to 30 June the following year. The file names are assumed to be of the following format:
+# Classfy
 
-  <name><date>.<extension>
+Zsh script for organising files by financial (or fiscal) year. A financial year starts on 1 July and ends on 30 June the following year and are named after the year in which it ends. For example, the script names the financial year from 1 July 2015 to 30 June 2016 "2016FY".
 
-Where data is in the form ddMMMyyyy or MMMyyyy. 
+The script assumes the file names are in the format `<name><date>.<extension>`, where date is in the form `ddMMMyyyy` or `MMMyyyy`. 
 
-By default, it rearranges the files in the current working directory. An alternate directory may be specified as a parametr to the script.
+## Usage
 
-For simplicity, the financial year is referred to as the year on which it ends (for example, the 2015-2016 financial year is referred to as just 2016 financial year).
+```bash
+classfy.sh [DIRECTORY]
+```
+
+`[DIRECTORY]` is an optional parameter. The script will organise the files in this directory when specified. Otherwise, it will organise files in the current working directory.
